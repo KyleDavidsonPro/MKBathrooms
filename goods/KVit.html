@@ -1,14 +1,49 @@
 <html>
 	<head>
+		<!-- reference to parse -->
+		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
-		<!-- Parse -->
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script type="text/javascript" src="https://s3.amazonaws.com/static.stackmob.com/js/stackmob-js-0.9.2-bundled-min.js"></script>
+
 		<script type="text/javascript">
-			StackMob.init({
-				publicKey: "5056c0f5-41b0-472d-843c-7b3546e7813e",
-				apiVersion: 0
+			Parse.initialize("iPUims20KXoOESo94Q2Fc04hcKFV9zRDaPpLOYny", "KlRRK4Vv8zWXBS7fWlE1p9ahwujEKQG9fHQRO2p6");
+			
+			var product = Parse.Object.extend("Prod");
+			var query = new Parse.Query(product);
+			query.find({
+				success: function(results) {
+					html = "";
+					//Create a table for the events to be displayed
+					for (var i = 0; i < results.length; i++) {
+						//get product data
+						var name = results[i].get("name");
+						var img = results[i].get("img_url");
+						var price = results[i].get("price");
+						var price_vat = results[i].get("price_vat");
+						
+						
+						html += "<div class='col-md-6'>" +
+									"<div class='panel panel-info'>" +
+										"<div class='panel-heading'>" +
+											"<h2 class='panel-title'>"+name+"</h2>"+
+										"</div>"+
+									"<div class='panel-body'>"+
+										"<div class='media'>"+
+											"<a class='pull-left' href='#'>"+
+											"<img src='"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'>"+
+											"</a>" +
+											"<div class='media-body'>"+
+												"Descriptions here" +
+											"</div>"+
+										"</div>"+
+									"</div>" +
+									"<div class='panel-footer'>£"+price_vat+" (inc VAT)<br/>£"+price+" (ex VAT)</div>"+
+								"</div>"+
+							"</div>";
+					}
+					
+					document.getElementById('content').innerHTML = html;
+				}
 			});
 		</script>
 	</head>
@@ -38,92 +73,13 @@
 		</div>
 
 		<div class="container" style="padding-top:5%;">
-			<div class="row">
-				<div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title">Impakt 500mm WC Unit</h2>
-						</div>
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="goods/KVit.html">
-								<img src="../images/wc.jpg" alt="placeholder" class="img-thumbnail" style="width:128px;height:128px;">
-								</a>
-								<div class="media-body">
-									<ul>
-									  <li>Suitable for Back to the wall Pans</li>
-									  <li>Can be fitted at the side of Impakt Cabinet and Basin</li>
-									  <li>White gloss finish</li>
-									  <li>Does not include cistern and pan</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="panel-footer">£67.00(inc VAT)<br/>£55.83 (ex VAT)</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title">Impakt 550mm Cabinet and Basin</h2>
-						</div>
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="goods/KVit.html">
-								<img src="../images/impakt 550.jpg" alt="placeholder" class="img-thumbnail" style="width:128px;height:128px;">
-								</a>
-								<div class="media-body">
-									<ul>
-									  <li>1 Tap Hole Washbasin </li>
-									  <li>Vanity Unit in White Gloss </li>
-									  <li>Comes Complete with Handles </li>
-									  <li>Taps Not Included </li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="panel-footer">£90.00(inc VAT)<br />£75.00(ex VAT)</div>
-					</div>
-				</div>
+			<ol class="breadcrumb">
+				<li><a href="../index.html">Home</a></li>
+				<li class="active">K.Vit Furniture</li>
+			</ol>
+			<div id="content">
+				<!-- Products Here -->
 			</div>
-			<!-- Second Row -->
-			<div class="row">
-				<div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h2 class="panel-title">Impakt 600mm WC Unit</h2>
-						</div>
-						<div class="panel-body">
-							<div class="media">
-								<a class="pull-left" href="goods/KVit.html">
-								<img src="../images/wc.jpg" alt="placeholder" class="img-thumbnail" style="width:128px;height:128px;">
-								</a>
-								<div class="media-body">
-									<ul>
-									  <li>Suitable for Back to the wall Pans </li>
-									  <li>Can be fitted at the side of Impakt Cabinet and Basin </li>
-									  <li>White gloss finish</li>
-									  <li>Does not include cistern and pan</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="panel-footer">£72.00(inc VAT)<br />£60.00(ex VAT))</div>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Panel title</h3>
-						</div>
-						<div class="panel-body">
-							Panel content
-						</div>
-						<div class="panel-footer">Panel footer</div>
-					</div>
-				</div>
-			</div>
-			
 		</div>
 	</body>
 </html>
