@@ -1,0 +1,158 @@
+.size320 {
+	width: 320px;
+	height: 320px;
+}
+
+.layout {
+	margin: 2em 15px;
+	color: #333;
+}
+
+.header {
+	padding: 14px 0;
+	background-color: rgb(19, 17, 17);
+	background-color: #006a3f;
+	background-image:	
+					radial-gradient(rgba(0,0,0,0.1) 15%, transparent 16%), 
+					radial-gradient(rgba(0,0,0,0.1) 15%, transparent 16%), 
+					radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), 
+					radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%);
+	background-image:	
+					-webkit-radial-gradient(rgba(0,0,0,0.1) 15%, transparent 16%), 
+					-webkit-radial-gradient(rgba(0,0,0,0.1) 15%, transparent 16%), 
+					-webkit-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%), 
+					-webkit-radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%);
+	background-position: 0 0px, 4px 4px, 0 1px, 4px 5px;
+	background-size: 8px 8px;
+	border-bottom: 1px solid rgb(41, 41, 41);
+}
+
+.header div.float-left {
+	padding-left: 2%;
+}
+
+.header a {
+	font-size: 35px;
+	color: white;
+	display: block;
+}
+.header a:first-letter {
+	font-size: 60px;
+	line-height: 40px;
+	font-weight: bold;
+}
+.header .target {
+	margin-left: 5px;
+	margin-bottom: 20px;
+}
+
+.header .reponsive-block {
+	list-style: none;
+	margin: 0px;
+	padding: 50px 2% 0 0;
+}
+
+.header .reponsive-block li {
+	display: inline-block;
+	float:left;
+}
+
+.header .reponsive-block a {
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	background: url(../i/reponsive.png) no-repeat;
+}	
+
+.header .reponsive-block a.desktop {
+	background-position: 3px 0;
+	width: 34px; height: 26px;
+}	
+
+.header .reponsive-block a.tablet-landscape {
+	background-position: -49px 0;
+	width: 22px;
+	height: 22px;
+}	
+
+.header .reponsive-block a.tablet-portrait {
+	background-position: -90px 0;
+	width: 18px;
+	height: 24px;
+}	
+
+.header .reponsive-block a.iphone-landscape {
+	background-position: -129px 0;
+	width: 20px;
+	height: 20px;
+}	
+
+.header .reponsive-block a.iphone-portrait {
+	background-position: -166px 0;
+	width: 16px;
+	height: 26px;
+}	
+
+.header .reponsive-block a.desktop:hover,
+.header .reponsive-block a.desktop.active {
+	background-position: 3px -34px;
+}	
+
+.header .reponsive-block a.tablet-landscape:hover,
+.header .reponsive-block a.tablet-landscape.active {
+	background-position: -49px -34px;
+}	
+
+.header .reponsive-block a.tablet-portrait:hover,
+.header .reponsive-block a.tablet-portrait.active {
+	background-position: -91px -33px;
+}	
+
+.header .reponsive-block a.iphone-landscape:hover,
+.header .reponsive-block a.iphone-landscape.active {
+	background-position: -128px -33px;
+}	
+
+.header .reponsive-block a.iphone-portrait:hover,
+.header .reponsive-block a.iphone-portrait.active {
+	background-position: -166px -33px;
+}
+
+.float-left {
+	float: left;
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1; /* For IE 6/7 (trigger hasLayout) */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 1px 1px 0 rgba(0,0,0,0.5);
+	font-family: 'Lato', Georgia, Helvetica, Tahoma;
+	margin: 10px 0;
+	font-weight: normal;
+}
+
+h1 {
+	font-size: 1.875em;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color: white;
+	opacity: 0.9;
+}
