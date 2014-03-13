@@ -8,7 +8,7 @@
 		<script type="text/javascript">
 			Parse.initialize("iPUims20KXoOESo94Q2Fc04hcKFV9zRDaPpLOYny", "KlRRK4Vv8zWXBS7fWlE1p9ahwujEKQG9fHQRO2p6");
 			
-			var product = Parse.Object.extend("Prod");
+			var product = Parse.Object.extend("Baths");
 			var query = new Parse.Query(product);
 			query.find({
 				success: function(results) {
@@ -30,14 +30,14 @@
 									"<div class='panel-body'>"+
 										"<div class='media'>"+
 											"<a class='pull-left' href='#'>"+
-											"<img src='"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'>"+
+											"<img src='../"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'>"+
 											"</a>" +
 											"<div class='media-body'>"+
 												"Descriptions here" +
 											"</div>"+
 										"</div>"+
 									"</div>" +
-									"<div class='panel-footer'>&#163;"+price_vat+" (inc VAT)<br/>&#163;"+price+" (ex VAT)</div>"+
+									"<div class='panel-footer'>&#163;"+price+"(ex VAT)</div>"+
 								"</div>"+
 							"</div>";
 					}
@@ -75,7 +75,7 @@
 		<div class="container" style="padding-top:5%;">
 			<ol class="breadcrumb">
 				<li><a href="../index.html">Home</a></li>
-				<li class="active">K.Vit Furniture</li>
+				<li class="active">Bathrooms</li>
 			</ol>
 			<div id="content">
 				<!-- Products Here -->
