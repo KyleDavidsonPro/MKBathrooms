@@ -1,0 +1,39 @@
+
+/*= GENERAL STYLING
+--------------------------------------------------------*/
+body{
+	width: 100%;
+}
+/*= SLIDES STYLING
+--------------------------------------------------------*/
+
+#offer, #slide2{ width: 100%; }
+#offer{
+	background:url(../images/Bathroom1.jpg) 50% 0 no-repeat fixed;
+	height: 600px;
+	margin: 0;
+	padding: 10% 0 10% 0;
+	background-size: cover;
+}
+
+#slide2{
+	background-color: #fff;
+	height: 600px;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 5% 0 10% 0;
+}
+
+#slide3{
+	background: url(../images/Bathroom2.jpg) 50% 0 no-repeat fixed;
+	height: 300px;
+	padding: 10% 0 10% 0;	
+	background-size: cover;
+}
+
+#slide4{
+	background-color: #fff;
+	height: 600px;
+	padding: 5% 0 10% 0;
+}
+

@@ -1,14 +1,43 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<!-- Bootstrap -->
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-		<style>
-			
-			body {
-			  padding-top: 70px;
-			}
-			
-		</style>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+		<!-- CSS -->
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script>
+			<!----- JQUERY FOR SLIDING NAVIGATION --->   
+			$(document).ready(function() {
+			  $('a[href*=#]').each(function() {
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
+			    && location.hostname == this.hostname
+			    && this.hash.replace(/#/,'') ) {
+			      var $targetId = $(this.hash), $targetAnchor = $('[name=' + this.hash.slice(1) +']');
+			      var $target = $targetId.length ? $targetId : $targetAnchor.length ? $targetAnchor : false;
+			       if ($target) {
+			         var targetOffset = $target.offset().top;
+
+			<!----- JQUERY CLICK FUNCTION REMOVE AND ADD CLASS "ACTIVE" + SCROLL TO THE #DIV--->   
+			         $(this).click(function() {
+						$("#nav li a").removeClass("active");
+						$(this).addClass('active');
+			           $('html, body').animate({scrollTop: targetOffset}, 1000);
+			           return false;
+			         });
+			      }
+			    }
+			  });
+
+			});
+	</script>
+		
+	<style>		
+		body {
+		  padding-top: 55px;
+		}
+	</style>
 	</head>
 	
 	<body>
@@ -24,104 +53,161 @@
 				</div>
 				<div class="navbar-collapse collapse" id="navbar-main">
 					<ul class="nav navbar-nav">
-						<li>
-							<a href="#">About us</a>
-						</li>
-						<li>
-							<a href="#">Contact</a>
-						</li>
+						<li class="active"><a href="#offer" title="Offer">Offer</a></li>
+						<li><a href="#slide2" title="Products">Products</a></li>
+						<li><a href="#slide4" title="Contact Us">Contact Us</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-			<div class="jumbotron">
-				<h1>Special offer</h1>
-				<div class='alert alert-info'><p class="lead">Combi Boiler and 7 Radiators from &#163;999 + VAT</p></div>
-			</div>
-		</div>
-		<!-- Sales and Goods -->
-		<div class="container">
-			<p class="lead"><u>Products and Services</u></p>
-			<div class="row">
-				<!-- K.VIT -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="goods/KVit.html">
-						<img src="images/k.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">K.Vit Furniture</h1>
-							<p>Have a browse through our beautiful range of K.Vit Bathroom Furniture</p>
-						</div>
+		<!----- SLIDES START --->   	
+		<div id="offer">
+			<div class="content">
+				<div class="container">
+					<div class="jumbotron">
+						<div class="page-header"><h1>Special Offer</h1></div>
+						<div class='alert alert-info'><p class="lead">Combi Boiler and 7 Radiators from &#163;999 + VAT</p></div>
 					</div>
 				</div>
-				<!-- Bathrooms -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="goods/baths.html">
-						<img src="images/bath.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">Baths</h1>
-							<p>Have a browse through our collection of Baths</p>
+			</div> 
+		</div> 
+
+		<div id="slide2">
+			<div class="content">
+			   <!-- Sales and Goods -->
+				<div class="container">
+					<div class="page-header"><h1>Products and Services</h1></div>
+					<div class="row">
+						<!-- K.VIT -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="goods/KVit.html">
+								<img src="images/k.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">K.Vit Furniture</h1>
+									<p>Have a browse through our beautiful range of K.Vit Bathroom Furniture</p>
+								</div>
+							</div>
+						</div>
+						<!-- Bathrooms -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="goods/baths.html">
+								<img src="images/bath.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">Baths</h1>
+									<p>Have a browse through our collection of Baths</p>
+								</div>
+							</div>
+						</div>
+						<!-- Ideal Boilers -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="#">
+								<img src="images/hot.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">Ideal Boilers</h1>
+									<p>Our Logic Combi range of boilers</p>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- Ideal Boilers -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="#">
-						<img src="images/hot.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">Ideal Boilers</h1>
-							<p>Our Logic Combi range of boilers</p>
+					
+					<!-- Second Row -->
+					<div class="row">
+						<!-- Kartell Towel Warmers -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="#">
+								<img src="images/towel.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">Kartell Towel Warmers</h1>
+									<p>Quality Designer Radiators, Radiators and Towel Rails</p>
+								</div>
+							</div>
+						</div>
+						<!-- Showers and Accessories -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="#">
+								<img src="images/water.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">Showers and Accessories</h1>
+									<p>Info To Come*</p>
+								</div>
+							</div>
+						</div>
+						<!-- Heating Spaces -->
+						<div class="col-md-4" style="padding-top:2%;">
+							<div class="media">
+								<a class="pull-left" href="#">
+								<img src="images/tiles.png" alt="placeholder" class="img-circle">
+								</a>
+								<div class="media-body">
+									<h1 class="media-heading">Heating Spares</h1>
+									<p>Full range of Worcester, Reillo and Baxi spares available</p>
+								</div>
+							</div>
 						</div>
 					</div>
+					
 				</div>
-			</div>
-			
-			<!-- Second Row -->
-			<div class="row">
-				<!-- Kartell Towel Warmers -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="#">
-						<img src="images/towel.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">Kartell Towel Warmers</h1>
-							<p>Quality Designer Radiators, Radiators and Towel Rails</p>
+			</div> 
+		</div> 
+		
+				
+		<div id="slide3">
+			<div class="content">
+				<div class="container">
+				</div> 
+			</div> 
+		</div> 
+	
+	   <div id="slide4">
+			<div class="content">
+				<div class="container">
+					<div class="page-header"><h1>Contact Us</h1></div>
+					<div class="row">
+						<div class="col-md-6">
+							<form role="form" id='contactform'>
+								<div class="form-group">
+									<label for="inputName">Your name</label>
+									<input type="text" class="form-control" id="inputName" placeholder="John Smith">
+								</div>
+								<div class="form-group">
+									<label for="inputEmail">Your email</label>
+									<input type="email" class="form-control" id="inputEmail" placeholder="john@hotmail.co.uk">
+								</div>
+								<div class="form-group">
+									<label for="inputNumber">Your phone number</label>
+									<input type="text" class="form-control" id="inputNumber" placeholder="0800JOHN">
+								</div>
+								<div class="form-group">
+									<label for="inputEnquiry">Your enquiry</label>
+									<textarea class="form-control" id='inputEnquiry' name="enquiry" form="contactform"></textarea>
+								</div>
+								<button type="submit" class="btn btn-success">Submit</button>
+							</form>
+						</div>
+						<div class="col-md-6">
+							<div class='well well-lg'>
+								<ul>
+									<li>Telephone: 077493985053803553</li>
+									<li>Address: 123 Fake Street, Fake Town, FT22 9ZH</li>
+									<li>Email: someemail@emails.com</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- Showers and Accessories -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="#">
-						<img src="images/water.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">Showers and Accessories</h1>
-							<p>Info To Come*</p>
-						</div>
-					</div>
-				</div>
-				<!-- Heating Spaces -->
-				<div class="col-md-4" style="padding-top:2%;">
-					<div class="media">
-						<a class="pull-left" href="#">
-						<img src="images/tiles.png" alt="placeholder" class="img-circle">
-						</a>
-						<div class="media-body">
-							<h1 class="media-heading">Heating Spares</h1>
-							<p>Full range of Worcester, Reillo and Baxi spares available</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
+				</div> 
+			</div> 
+		</div> 
+	
+<!----- SLIDES END --->
 	</body>
 </html>
