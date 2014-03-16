@@ -18,9 +18,8 @@ body{
 
 #slide2{
 	background-color: #fff;
-	height: 600px;
+	height: 100%;
 	margin: 0 auto;
-	overflow: hidden;
 	padding: 5% 0 10% 0;
 }
 
