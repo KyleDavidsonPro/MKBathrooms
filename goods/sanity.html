@@ -16,7 +16,17 @@
 
 		<link rel="stylesheet" href="../css/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 		<script type="text/javascript" src="../js/jquery.fancybox-thumbs.js?v=1.0.7"></script>
-		
+		<!-- SimpleCart -->
+		<script src="../js/simpleCart.js"></script>
+		<script>
+			  simpleCart({
+				checkout: {
+				  type: "PayPal",
+				  email: "placeholder@nonexistant"
+				},
+				currency: "GBP"
+			  });
+		</script>
 		<script type="text/javascript">
 			Parse.initialize("iPUims20KXoOESo94Q2Fc04hcKFV9zRDaPpLOYny", "KlRRK4Vv8zWXBS7fWlE1p9ahwujEKQG9fHQRO2p6");
 			
@@ -34,10 +44,10 @@
 						var price_vat = results[i].get("price_vat");
 						
 						
-						html += "<div class='col-md-6'>" +
+						html += "<div class='col-md-6 simpleCart_shelfItem'>" +
 									"<div class='panel panel-info'>" +
 										"<div class='panel-heading'>" +
-											"<h2 class='panel-title'>"+name+"</h2>"+
+											"<h2 class='panel-title item_name'>"+name+"</h2>"+
 										"</div>"+
 									"<div class='panel-body'>"+
 										"<div class='media'>"+
@@ -49,7 +59,9 @@
 											"</div>"+
 										"</div>"+
 									"</div>" +
-									"<div class='panel-footer'>&#163;"+price+"<br/>&#163;"+calculateVAT(price)+" (VAT)</div>"+
+									"<div class='panel-footer'><span class='item_price'>&#163;"+calculateVAT(price)+"(inc VAT)</span>"+
+									"<a class='item_add' href='javascript:;'> Add to Cart </a>"+
+									"</div>"+
 								"</div>"+
 							"</div>";
 					}
@@ -88,6 +100,8 @@
 				<li><a href="../index.html">Home</a></li>
 				<li class="active">Bathrooms</li>
 			</ol>
+			<span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
+			<a href="javascript:;" class="simpleCart_checkout">Checkout</a>
 			<div id="content">
 				<!-- Products Here -->
 			</div>
