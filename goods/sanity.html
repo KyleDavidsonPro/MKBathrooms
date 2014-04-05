@@ -4,7 +4,19 @@
 		<script src="http://www.parsecdn.com/js/parse-1.2.12.min.js"></script>
 		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+		<!-- Add jQuery library -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<!-- Add fancyBox -->
+		<link rel="stylesheet" href="../css/jquery.fancybox.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
+		<!-- Optionally add helpers - button, thumbnail and/or media -->
+		<link rel="stylesheet" href="../css/jquery.fancybox-buttons.css?v=1.0.5" type="text/css" media="screen" />
+		<script type="text/javascript" src="../js/jquery.fancybox-buttons.js?v=1.0.5"></script>
+		<script type="text/javascript" src="../js/jquery.fancybox-media.js?v=1.0.6"></script>
 
+		<link rel="stylesheet" href="../css/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
+		<script type="text/javascript" src="../js/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+		
 		<script type="text/javascript">
 			Parse.initialize("iPUims20KXoOESo94Q2Fc04hcKFV9zRDaPpLOYny", "KlRRK4Vv8zWXBS7fWlE1p9ahwujEKQG9fHQRO2p6");
 			
@@ -30,20 +42,29 @@
 									"<div class='panel-body'>"+
 										"<div class='media'>"+
 											"<div class='pull-left'>"+
-											"<img src='../"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'>"+
+											"<a class='fancybox' rel='group' href='../"+img+"'><img src='../"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'></a>"+
 											"</div>" +
 											"<div class='media-body'>"+
 												"Descriptions here" +
 											"</div>"+
 										"</div>"+
 									"</div>" +
-									"<div class='panel-footer'>&#163;"+price+"(ex VAT)</div>"+
+									"<div class='panel-footer'>&#163;"+price+"<br/>&#163;"+calculateVAT(price)+" (VAT)</div>"+
 								"</div>"+
 							"</div>";
 					}
 					
 					document.getElementById('content').innerHTML = html;
 				}
+			});
+			
+			function calculateVAT (number) {
+				vat = number/100*20
+				return number + vat
+			}
+			
+			$(document).ready(function() {
+				$(".fancybox").fancybox();
 			});
 		</script>
 	</head>
@@ -58,16 +79,6 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					</button>
-				</div>
-				<div class="navbar-collapse collapse" id="navbar-main">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="../help/">About us</a>
-						</li>
-						<li>
-							<a href="#">Contact</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
