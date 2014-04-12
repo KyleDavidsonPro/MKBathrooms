@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 		<script>
 			<!----- JQUERY FOR SLIDING NAVIGATION --->   
 			$(document).ready(function() {
@@ -31,6 +32,17 @@
 			  });
 
 			});
+	</script>
+	<!-- SimpleCart -->
+	<script src="js/simpleCart.js"></script>
+	<script>
+		  simpleCart({
+			checkout: {
+			  type: "PayPal",
+			  email: "placeholder@nonexistant"
+			},
+			currency: "GBP"
+		  });
 	</script>
 		
 	<style>		
@@ -57,6 +69,16 @@
 						<li><a href="#slide2" title="Products">Products</a></li>
 						<li><a href="#slide4" title="Contact Us">Contact Us</a></li>
 					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown">
+					  <a class="dropdown-toggle" data-toggle="dropdown" data-target="#"><span class='glyphicon glyphicon-shopping-cart'></span><b class="caret"></b></a>
+					  <ul class="dropdown-menu">
+						<li><a href="shoppingcart.html"><span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span></a></li>
+						<li class="divider"></li>
+						<li><a href="javascript:;" class="simpleCart_checkout">Checkout</a></li>
+					  </ul>
+					</li>
+				</ul>
 				</div>
 			</div>
 		</div>
@@ -196,11 +218,17 @@
 						</div>
 						<div class="col-md-6">
 							<div class='well well-lg'>
-								<ul>
-									<li>Telephone: 077493985053803553</li>
-									<li>Address: 123 Fake Street, Fake Town, FT22 9ZH</li>
-									<li>Email: someemail@emails.com</li>
-								</ul>
+								<address>
+									<strong>MKBathrooms</strong><br>
+									Street,<br>
+									City<br>
+									<abbr title="Phone">P:</abbr> (+44)Number
+								</address>
+
+								<address>
+									<strong>Point Of Contact</strong><br>
+									<a href="mailto:#">first.last@example.com</a>
+								</address>
 							</div>
 						</div>
 					</div>

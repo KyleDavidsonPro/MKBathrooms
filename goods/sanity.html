@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 		<!-- Add jQuery library -->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<!-- Bootstrap JS -->
+		<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 		<!-- Add fancyBox -->
 		<link rel="stylesheet" href="../css/jquery.fancybox.css" type="text/css" media="screen" />
 		<script type="text/javascript" src="../js/jquery.fancybox.pack.js"></script>
@@ -59,11 +61,13 @@
 											"</div>"+
 										"</div>"+
 									"</div>" +
-									"<div class='panel-footer'><span class='item_price'>&#163;"+calculateVAT(price)+"(inc VAT)</span>"+
-									"<a class='item_add' href='javascript:;'> Add to Cart </a>"+
+									"<div style='overflow:hidden;' class='panel-footer'><span class='item_price'>&#163;"+calculateVAT(price)+"(inc VAT)</span>"+
+									"<a style='float:right;' class='btn btn-success item_add' href='javascript:;'> Add to Cart </a>"+
 									"</div>"+
 								"</div>"+
 							"</div>";
+							
+							
 					}
 					
 					document.getElementById('content').innerHTML = html;
@@ -79,6 +83,12 @@
 				$(".fancybox").fancybox();
 			});
 		</script>
+		
+		<style>
+			body {
+				padding-top:5%;
+			}
+		</style>
 	</head>
 	
 	<body>
@@ -86,22 +96,26 @@
 			<div class="container">
 				<div class="navbar-header">
 					<a href="../index.html" class="navbar-brand">MK Bathrooms</a>
-					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</button>
+				</div>
+				<div class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+						  <a class="dropdown-toggle" data-toggle="dropdown" data-target="#"><span class='glyphicon glyphicon-shopping-cart'></span><b class="caret"></b></a>
+						  <ul class="dropdown-menu">
+							<li><a href="../shoppingcart.html"><span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span></a></li>
+							<li class="divider"></li>
+							<li><a href="javascript:;" class="simpleCart_checkout">Checkout</a></li>
+						  </ul>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
 
-		<div class="container" style="padding-top:5%;">
+		<div class="container">
 			<ol class="breadcrumb">
 				<li><a href="../index.html">Home</a></li>
 				<li class="active">Bathrooms</li>
 			</ol>
-			<span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span>
-			<a href="javascript:;" class="simpleCart_checkout">Checkout</a>
 			<div id="content">
 				<!-- Products Here -->
 			</div>
