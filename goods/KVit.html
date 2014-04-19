@@ -18,6 +18,8 @@
 		<script type="text/javascript" src="../js/jquery.fancybox-media.js?v=1.0.6"></script>
 		<link rel="stylesheet" href="../css/jquery.fancybox-thumbs.css?v=1.0.7" type="text/css" media="screen" />
 		<script type="text/javascript" src="../js/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+		<!-- Helper.js -->
+		<script type="text/javascript" src="../js/helpers.js"></script>
 		<!-- SimpleCart -->
 		<script src="../js/simpleCart.js"></script>
 		<script>
@@ -37,67 +39,21 @@
 			var query = new Parse.Query(product);
 			query.find({
 				success: function(results) {
-					html = "";
-					//Create a table for the events to be displayed
-					for (var i = 0; i < results.length; i++) {
-						//get product data
-						var name = results[i].get("name");
-						var img = results[i].get("img_url");
-						var price = results[i].get("price");
-						var price_vat = results[i].get("price_vat");
-						
-						
-						html += "<div class='col-md-6 simpleCart_shelfItem'>" +
-									"<div class='panel panel-info'>" +
-										"<div class='panel-heading'>" +
-											"<h2 class='panel-title item_name'>"+name+"</h2>"+
-										"</div>"+
-									"<div class='panel-body'>"+
-										"<div class='media'>"+
-											"<div class='pull-left'>"+
-											"<a class='fancybox' rel='group' href='"+img+"'><img src='"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'></a>"+
-											"</div>" +
-											"<div class='media-body'>"+
-												"Descriptions here" +
-											"</div>"+
-										"</div>"+
-									"</div>" +
-									"<div style='overflow:hidden;' class='panel-footer'><span class='item_price'>&#163;"+calculateVAT(price)+"(inc VAT)</span>"+
-									"<a style='float:right;' class='btn btn-success item_add' href='javascript:;'> Add to Cart </a>"+
-									"</div>"+
-								"</div>"+
-							"</div>";
-					}
-					
+					var html = buildProductsList(results);
 					document.getElementById('content').innerHTML = html;
 				}
 			});
-			
-			function calculateVAT (number) {
-				vat = number/100*20
-				return number + vat
-			}
-			
 
 			$(document).ready(function() {
 				$(".fancybox").fancybox();
 			});
-
-
+			
 		</script>
 		
 		<!-- Internal style sheet -->
 		<style>
-			.item_add {
-				text-decoration: none;
-				font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-				font-size: 12px;
-				line-height: 1.42857143;
-				color: #FFFFFF;
-			}
-			
 			body {
-				padding-top:5%;
+			  padding-top: 60px;
 			}
 		</style>
 	</head>
@@ -110,7 +66,11 @@
 				</div>
 				<div class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-						  <a class="dropdown-toggle" data-toggle="dropdown" data-target="#"><span class='glyphicon glyphicon-shopping-cart'></span><b class="caret"></b></a>
+							<a class="dropdown-toggle" data-toggle="dropdown" data-target="#">
+								<span class='glyphicon glyphicon-shopping-cart'></span>
+								<b class="caret"></b>
+								<span class="badge"><span class="simpleCart_quantity"></span></span>
+							</a>
 						  <ul class="dropdown-menu">
 							<li><a href="../shoppingcart.html"><span class="simpleCart_quantity"></span> items - <span class="simpleCart_total"></span></a></li>
 							<li class="divider"></li>
@@ -122,16 +82,15 @@
 			</div>
 		</div>
 		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="../index.html">Home</a></li>
-				<li class="active">K.Vit Furniture</li>
-			</ol>
+			<div class='row'>
+				<ol class="breadcrumb">
+					<li><a href="../index.html">Home</a></li>
+					<li class="active">K.Vit Furniture</li>
+				</ol>
+			</div>
 			<div id="content">
 				<!-- Products Here -->
 			</div>
-			
-			
-			
 		</div>
 	</body>
 </html>
