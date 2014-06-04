@@ -18,7 +18,7 @@ function buildProductsList(items) {
 		var list = "";
 		//Make sure string is not undefined
 		if (detailsStr) {
-			var details = detailsStr.split("\n");
+			var details = detailsStr.split(".");
 			list += "<ul class='list-group'>";
 			for (var index = 0; index < details.length; index++) {
 				var detail = details[index];
