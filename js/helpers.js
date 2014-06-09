@@ -61,3 +61,78 @@ function buildProductsList(items) {
 	return html;
 }
 
+function buildRadiatorsList(items) {
+	//Declare the html string
+	html = "";
+	//Create a table for the events to be displayed
+	for (var i = 0; i < items.length; i++) {
+		//get product data
+		var name = items[i].get("name");
+		var img = items[i].get("img_url");
+		//parallel arrays
+		var prices = items[i].get("prices");
+		var dimensions = items[i].get("dimensions");
+		
+		var detailsStr = items[i].get("detail");
+		//Declare list html string
+		var list = "";
+		//Make sure string is not undefined
+		if (detailsStr) {
+			var details = detailsStr.split(".");
+			list += "<ul class='list-group'>";
+			for (var index = 0; index < details.length; index++) {
+				var detail = details[index];
+				list += "<li class='list-group-item'>" + detail + "</li>";
+			}
+			list += "</ul>"
+		}
+		
+		//Build bootstrap grid system
+		if (i == 0) html += "<div class='row'>";
+		else if (i % 2 == 0) {
+			html += "</div><div class='row'>"
+		}
+		//Add product divs as columns
+		html += "<div class='col-md-6 simpleCart_shelfItem'>" +
+					"<div class='panel panel-info'>" +
+						"<div class='panel-heading'>" +
+							"<h2 class='panel-title item_name'>"+name+"</h2>"+
+						"</div>"+
+						"<div class='panel-body'>"+
+							"<div class='media'>"+
+								"<div class='pull-left'>"+
+									"<a class='fancybox' rel='group' href='../images/"+img+"'><img src='../images/"+img+"' alt='placeholder' class='img-thumbnail' style='width:128px;height:128px;'></a>"+
+								"</div>" +
+								"<div class='media-body'>"+
+									list +
+								"</div>"+
+							"</div>"+
+						"</div>" +
+						"<div style='overflow:hidden;' class='panel-footer'>"+ buildDimensionsSelect(dimensions, prices, i) +
+							"<span class='item_price' id='price"+i+"'>"+prices[0]+"</span>"+
+							"<a style='float:right;' class='btn btn-success item_add' href='javascript:;'> Add to Cart </a>"+
+						"</div>"+
+					"</div>"+
+				"</div>";
+
+		if (i == items.length-1) html += "</div>";
+		
+	
+	}
+	return html;
+}
+
+function buildDimensionsSelect(dimensions, prices, index) {
+	var selectHTML = "<select class='item_size' id='select"+index+"'>"
+	for (var i = 0; i < dimensions.length; i++) {
+		var price = calculateVAT(prices[i]);
+		var dimension = dimensions[i];
+		if (i == 0) 
+			selectHTML += "<option price='"+price+"' selected='selected'>"+dimension+"</option>";
+		else
+			selectHTML += "<option price='"+price+"'>"+dimension+"</option>";
+	}
+	selectHTML += "</select>"
+	return selectHTML;
+}
+
